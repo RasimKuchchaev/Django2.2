@@ -1,5 +1,4 @@
 from django.shortcuts import render
-from django.http import HttpResponse
 
 
 def advertisement_list(request, *args, **kwargs):
@@ -8,6 +7,15 @@ def advertisement_list(request, *args, **kwargs):
         'Ремонт компьютера',
         'Услуги сантехника'
     ]
-    return render(request, 'advertisement/advertisements_list.html', {'advertisements':advertisements})
+    return render(request, 'advertisement/advertisements_list.html', {'advertisements': advertisements})
 
 
+def contact_list(request, *args, **kwargs):
+    contacts = [
+        '01 - пожар',
+        '02 - милиция',
+        '03 - скорая',
+        '04 - газ',
+        '112 - SOS',
+    ]
+    return render(request, 'advertisement/contact.html', {'contacts': contacts})
