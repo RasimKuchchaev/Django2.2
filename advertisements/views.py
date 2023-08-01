@@ -1,5 +1,6 @@
 from django.shortcuts import render
-
+from django.views import View
+from django.http import HttpResponse
 
 def advertisement_list(request, *args, **kwargs):
     advertisements = [
@@ -8,6 +9,11 @@ def advertisement_list(request, *args, **kwargs):
         'Услуги сантехника'
     ]
     return render(request, 'advertisement/advertisements_list.html', {'advertisements': advertisements})
+
+class About(View):
+    def get(self, request):
+        return render(request, 'advertisement/about.html',{'about':'about-qwerty'})
+
 
 
 def contact_list(request, *args, **kwargs):
