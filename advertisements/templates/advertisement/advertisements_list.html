@@ -1,5 +1,7 @@
-<ul>
-    <li>Мастер на час</li>
-    <li>Ремонт компьютера</li>
-    <li>Услуги сантехника</li>
-</ul>
+<html>
+    {% for advertisement in advertisements %}
+        <ul>
+            <li>{{ advertisement}}</li>
+        </ul>
+    {% endfor %}
+</html>
