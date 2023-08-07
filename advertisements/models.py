@@ -12,8 +12,13 @@ class Advertisement(models.Model):
     view_count = models.IntegerField(default=0, verbose_name='количество просмотров')
     status = models.ForeignKey('AdvertisementStatus', on_delete=models.CASCADE, default=None, null=True)
 
+
     def __str__(self):
         return self.title
+
+    class Meta:
+        db_table = 'advertisement'
+        ordering = ['title']
 
 
 class AdvertisementStatus(models.Model):
