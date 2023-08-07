@@ -2,15 +2,14 @@ from django.shortcuts import render
 from django.views import View
 from django.http import HttpResponse
 from django.views.generic.base import TemplateView
+from advertisements.models import Advertisement
 
 
 def advertisement_list(request, *args, **kwargs):
-    advertisements = [
-        'Мастер на час',
-        'Ремонт компьютера',
-        'Услуги сантехника'
-    ]
-    return render(request, 'advertisement/advertisements_list.html', {'advertisements': advertisements})
+    advertisements = Advertisement.objects.all()
+    return render(request, 'advertisement/advertisements.html', {
+        'advertisements': advertisements
+    })
 
 class About(TemplateView):
     template_name = 'advertisement/about.html'
