@@ -8,3 +8,10 @@ class Publisher(models.Model):
     country = models.CharField(max_length=50)
     is_active = models.BooleanField()
 
+
+class Author(models.Model):
+    first_name = models.CharField(max_length=30)
+    last_name = models.CharField(max_length=40)
+    emal = models.EmailField()
+    biography = models.TextField()
+
