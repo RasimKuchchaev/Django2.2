@@ -8,10 +8,24 @@ class Publisher(models.Model):
     country = models.CharField(max_length=50)
     is_active = models.BooleanField()
 
+    def __str__(self):
+        return f"{self.id}. {self.name} ({self.country}, {self.city})"
+
 
 class Author(models.Model):
     first_name = models.CharField(max_length=30)
     last_name = models.CharField(max_length=40)
-    emal = models.EmailField()
+    email = models.EmailField()
     biography = models.TextField()
+
+    def __str__(self):
+        return f"{self.id}. {self.first_name}, {self.last_name}"
+
+
+class Book(models.Model):
+    title = models.CharField(max_length=100)
+    author = models.ManyToManyField(Author)
+    publisher = models.ForeignKey(Publisher, on_delete=models.CASCADE)
+    publication_date = models.DateField()
+
 
