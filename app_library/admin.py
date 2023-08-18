@@ -14,6 +14,21 @@ class PublisherAdmin(admin.ModelAdmin):
 class AuthorAdmin(admin.ModelAdmin):
     list_display = ['id', 'first_name', 'last_name']
     search_fields = ['first_name', 'last_name', 'biography']
+    fieldsets = (
+        ('Основные сведения', {
+            'fields': ('first_name', 'second_name', 'last_name', 'country', 'city')
+        }),
+        ('Биографические данные', {
+            'fields': ('university', 'birth_date', 'biography'),
+            'description': 'Различные данные из биографии автора',
+            'classes': ['collapse']
+        }),
+        ('Контакты', {
+            'fields': ('email', 'phone', 'personal_page', 'facebook', 'twiter'),
+            'description': 'Различные способы связатся с автором',
+        }),
+
+    )
 
 
 class BookAdmin(admin.ModelAdmin):
