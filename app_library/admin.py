@@ -6,6 +6,7 @@ from app_library.models import Publisher, Author, Book
 class BookInline(admin.StackedInline):
     model = Book
 
+
 class PublisherAdmin(admin.ModelAdmin):
     list_display = ['id', 'name', 'city']
     list_filter = ['is_active', 'city']
@@ -32,7 +33,21 @@ class AuthorAdmin(admin.ModelAdmin):
 
 
 class BookAdmin(admin.ModelAdmin):
-    pass
+    list_display = ['id', 'title', 'status']
+    actions = ['mark_as_published', 'mark_as_draft', 'mark_as_review']
+
+    def mark_as_published(self, request, queryset):
+        queryset.update(status='p')
+
+    def mark_as_draft(self, request, queryset):
+        queryset.update(status='d')
+
+    def mark_as_review(self, request, queryset):
+        queryset.update(status='r')
+
+    mark_as_published.short_description = 'Перевести в статус Опубликовано'
+    mark_as_draft.short_description = 'Перевести в статус Черновик'
+    mark_as_review.short_description = 'Перевести в статус Ревью'
 
 
 admin.site.register(Publisher, PublisherAdmin)
