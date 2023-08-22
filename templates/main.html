@@ -5,6 +5,11 @@
     <title>Главная страница</title>
 </head>
 <body>
-    <h2>Я, главная страница</h2>
+{% if request.user.is_authenticated %}
+    <h3>Добро пожаловать на сайт {{ request.user.username }}</h3>
+{% else %}
+    <h3>Вы неавторизованны на нашем сайте</h3>
+    <a href="{% url 'login' %}">Войти</a>
+{% endif %}
 </body>
 </html>
