@@ -12,7 +12,7 @@ class Vacancy(models.Model):
     class Meta:
         verbose_name = 'вакансия'
         verbose_name_plural = 'вакансии'
-        permissions = (
+        permissions = (                     # Добавления разрешения в admin панель
             ("can_publish", "Может опубликовать"),
         )
 
