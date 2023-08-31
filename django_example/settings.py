@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'app_library',
     'app_users',
     'app_employment',
+    'app_media',
 ]
 
 MIDDLEWARE = [
