@@ -1,6 +1,6 @@
 from django.http import HttpResponse
-from django.shortcuts import render
-from app_media.forms import UploadFileForm
+from django.shortcuts import render, redirect
+from app_media.forms import UploadFileForm, DocumentForm
 
 
 def upload_file(request):
@@ -16,3 +16,14 @@ def upload_file(request):
         'form': upload_file_form
     }
     return render(request, 'media/upload_file.html', context=context)
+
+
+def model_form_upload(request):
+    if request.method == "POST":
+        form = DocumentForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('/')
+    else:
+        form = DocumentForm()
+    return render(request, 'media/file_from_upload.html', {'form': form})
