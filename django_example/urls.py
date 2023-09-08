@@ -17,7 +17,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from django.urls import include
-
+from django.conf import settings
+from django.conf.urls.static import static
 from django_example.views import MainView
 
 urlpatterns = [
@@ -27,4 +28,4 @@ urlpatterns = [
     path('employment/', include('app_employment.urls')),
     path('files/', include('app_media.urls')),
     path('goods/', include('app_goods.urls')),
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)           # для скачивания файла

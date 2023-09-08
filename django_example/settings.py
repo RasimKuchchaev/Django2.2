@@ -133,3 +133,4 @@ LOGIN_REDIRECT_URL = '/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')       # все файлы хранит в директории media
+MEDIA_URL = '/media/'

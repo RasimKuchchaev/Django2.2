@@ -1,6 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
-from app_media.forms import UploadFileForm, DocumentForm
+from app_media.forms import UploadFileForm, DocumentForm, MultiFileForm
+from app_media.models import File
 
 
 def upload_file(request):
@@ -27,3 +28,17 @@ def model_form_upload(request):
     else:
         form = DocumentForm()
     return render(request, 'media/file_from_upload.html', {'form': form})
+
+
+def upload_files(request):
+    if request.method=='POST':
+        form = MultiFileForm(request.POST, request.FILES)
+        if form.is_valid():
+            files = request.FILES.getlist('file_field')         # для многих файлов
+            for f in files:                                     # будем итерироватся по прикрепленым файлам
+                instance = File(file=f)
+                instance.save()
+            return redirect('/')
+    else:
+        form = MultiFileForm()
+    return render(request, 'media/upload_files.html', {'form': form})
