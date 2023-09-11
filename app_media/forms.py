@@ -14,7 +14,7 @@ class DocumentForm(forms.ModelForm):
         fields = ('description', 'file')
 
 
-# class MultiFileForm(forms.Form):
+# class MultiFileForm(forms.Form):          # не работает
 #     file_field = forms.FileField(widget=forms.ClearableFileInput(attrs={'multiple': True}))     # для загрузки одновременно много файлов
 
 class MultipleFileInput(forms.ClearableFileInput):
@@ -35,5 +35,5 @@ class MultipleFileField(forms.FileField):
         return result
 
 
-class MultiFileForm(forms.Form):
+class MultiFileForm(forms.Form):                     # для загрузки одновременно много файлов
     file_field = MultipleFileField()
