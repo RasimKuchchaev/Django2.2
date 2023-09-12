@@ -10,6 +10,9 @@ def items_list(request):
     items = Item.objects.all()
     return render(request, 'goods/items_list.html', {'items_list': items})
 
+def items_test(request):
+    return HttpResponse('TEST TEMPLATE')
+
 
 def update_prices(request):
     if request.method == 'POST':

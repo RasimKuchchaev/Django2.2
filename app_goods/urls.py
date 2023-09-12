@@ -1,5 +1,5 @@
 from django.urls import path
-from app_goods.views import items_list, update_prices
+from app_goods.views import items_list, update_prices, items_test
 
 urlpatterns = [
     path('items/', items_list, name='item_list'),
