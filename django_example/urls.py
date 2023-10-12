@@ -30,4 +30,5 @@ urlpatterns = [
     path('files/', include('app_media.urls')),
     path('goods/', include('app_goods.urls')),
     path('app_logic/', include('app_logic.urls')),
+    path('i18n', include('django.conf.urls.i18n')),                         # все методы для локализации
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)           # для скачивания файла

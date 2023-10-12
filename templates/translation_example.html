@@ -7,5 +7,37 @@
 </head>
 <body>
 <p>{% trans "Translated text." %}</p>
+
+{% get_current_language as LANGUAGE_CODE %}         <!-- получить выбраный на странице язык (i18n) -->
+<!--{% get_language_info for LANGUAGE_CODE as lang %}    информацию о языке по выбраному языку (i18n) -->
+{% get_language_info for 'ja' as lang %}   <!-- информацию о языке по выбраному языку (i18n) -->
+Language code: {{ lang.code }}<br>                  <!-- код языка -->
+Name of language: {{ lang.name_local }}<br>
+Name in English: {{ lang.name }}<br>
+Bi-directional: {{ lang.bidi }}<br>                 <!-- какой тип языка(True - читается справа на лево) -->
+Name in the active language: {{ lang.name_translated }}
+
+
+{% language 'en' %}
+    <!--Current language: {{ lang }} -->
+    <p>{% trans "Welcome to our page" %}</p>
+{% endlanguage %}
+
+<form action="{% url 'set_language' %}" method="post">{% csrf_token %}      <!-- форма для переключения языков -->
+    <input name="next" type="hidden" value="{{ redirect_to }}">
+    <select name="language">
+        {% get_current_language as LANGUAGE_CODE %}
+        {% get_available_languages as LANGUAGES %}
+        {% get_language_info_list for LANGUAGES as languages %}
+        {% for language in languages %}
+            <option value="{{ language.code }}"{% if language.code == LANGUAGE_CODE %} selected{% endif %}>
+                {{ language.name_local }} ({{ language.code }})
+            </option>
+        {% endfor %}
+    </select>
+    <input type="submit" value="GO">
+
+</form>
+
 </body>
 </html>

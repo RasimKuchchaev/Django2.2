@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-10-12 09:54+0000\n"
+"POT-Creation-Date: 2023-10-12 11:50+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1234,3 +1234,7 @@ msgstr "Наша переведенная страница"
 #: templates/translation_example.html:9
 msgid "Translated text."
 msgstr "Переведеный текст"
+
+#: templates/translation_example.html:23
+msgid "Welcome to our page"
+msgstr "Добро пожаловать на нашу страницу"
