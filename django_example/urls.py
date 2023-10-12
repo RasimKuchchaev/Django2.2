@@ -22,7 +22,8 @@ from django.conf.urls.static import static
 from django_example.views import MainView
 
 urlpatterns = [
-    path('', MainView.as_view(), name='main'),
+    # path('', MainView.as_view(), name='main'),
+    path('', include('app_pages.urls')),
     path('admin/', admin.site.urls),
     path('users/', include('app_users.urls')),
     path('employment/', include('app_employment.urls')),
