@@ -18,3 +18,8 @@ example:
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
+
+
+        Интернационализация LINUX (windows gettext)
+1.  python manage.py makemessages -l ru
+2.  python manage.py compilemessages
