@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-10-13 08:43+0000\n"
+"POT-Creation-Date: 2023-10-16 06:21+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,7 +20,23 @@ msgstr ""
 "n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
 "(n%100>=11 && n%100<=14)? 2 : 3);\n"
 
-#: app_pages/views.py:12
+#: app_goods/apps.py:9 app_goods/models.py:10
+msgid "goods"
+msgstr "Товары"
+
+#: app_goods/models.py:6
+msgid "code"
+msgstr "Артикул"
+
+#: app_goods/models.py:7
+msgid "price"
+msgstr "Цена"
+
+#: app_goods/models.py:11
+msgid "good"
+msgstr "Товары"
+
+#: app_pages/views.py:13
 #, python-format
 msgid "Hello there! Today is %(date)s %(time)s"
 msgstr "Привет! Сегодня %(date)s %(time)s"

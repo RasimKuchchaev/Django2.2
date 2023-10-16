@@ -1,6 +1,9 @@
 from django.apps import AppConfig
+from django.utils.translation import gettext_lazy as _
+'''gettext_lazy - отложеный перевод, использовать нужно когда использование происходить в путях кода'''
 
 
 class AppGoodsConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
     name = 'app_goods'
+    verbose_name = _('goods')
