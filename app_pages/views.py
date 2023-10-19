@@ -17,3 +17,10 @@ def greetings_page(request, *args, **kwargs):
     return render(request, "greetings.html", context={
         'greetings_message': greetings_message
     })
+
+
+def welcome(request, *args, **kwargs):
+    return render(request, 'welcome.html')
+
+def main_page(request, *args, **kwargs):
+    return render(request, 'main.html')
