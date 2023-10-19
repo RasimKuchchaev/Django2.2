@@ -3,6 +3,8 @@ from django.shortcuts import render
 from django.utils.translation import gettext as _
 from django.utils.formats import date_format, time_format
 import datetime
+from django.views.decorators.cache import cache_page        # decorator
+from time import sleep
 
 def translation_example(request, *args, **kwargs):
     return render(request, "translation_example.html")
@@ -19,7 +21,9 @@ def greetings_page(request, *args, **kwargs):
     })
 
 
+@cache_page(30)             # decorator cache - 30c
 def welcome(request, *args, **kwargs):
+    sleep(4)
     return render(request, 'welcome.html')
 
 def main_page(request, *args, **kwargs):
