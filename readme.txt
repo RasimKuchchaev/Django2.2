@@ -20,6 +20,12 @@ example:
 }
 
 
+	startapp 2
+django-admin startproject base .
+python .\manage.py runserver
+
+
+
         Интернационализация LINUX (windows gettext)
 1.  python manage.py makemessages -l ru
 2.  python manage.py compilemessages
