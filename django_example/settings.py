@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'app_goods.apps.AppGoodsConfig',
     'app_logic',
     'app_pages',
+    'app_shops',
 ]
 
 MIDDLEWARE = [
